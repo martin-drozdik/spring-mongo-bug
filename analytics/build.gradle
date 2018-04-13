@@ -1,0 +1,17 @@
+// analytics
+
+group = 'analytics'
+version = '1.0'
+
+sourceSets {
+    test {
+        kotlin {
+            ["src/test/kotlin"]
+        }
+    }
+    main {
+        kotlin {
+            ["src/main/kotlin"]
+        }
+    }
+}

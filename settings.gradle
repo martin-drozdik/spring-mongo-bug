@@ -1,0 +1,3 @@
+rootProject.name = "evo-prototype"
+
+include 'analytics', 'next-server'
