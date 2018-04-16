@@ -1,7 +1,7 @@
 package application
 
 
-import domain.*
+//import domain.*
 import org.springframework.data.annotation.TypeAlias
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
-/*
+
 @TypeAlias("ServerEvent")
 sealed class ServerEvent
 
@@ -22,7 +22,7 @@ data class UserRegistered
     @Indexed val something: String
 
 ): ServerEvent()
-*/
+
 @Repository
 interface ServerEventRepository: ReactiveCrudRepository<ServerEvent, String>
 
