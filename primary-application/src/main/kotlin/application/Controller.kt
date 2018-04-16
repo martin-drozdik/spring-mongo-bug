@@ -30,12 +30,21 @@ interface ServerEventRepository: ReactiveCrudRepository<ServerEvent, String>
 @RequestMapping
 class Controller(private val serverEventRepository: ServerEventRepository)
 {
+    init
+    {
+        // In order for the bug to manifest itself, there has to be at least one item
+        // in the database.
+        // Once you fill the database, you should comment out this init section and
+        // restart the application.
+        serverEventRepository.deleteAll().subscribe()
+        serverEventRepository.save(UserRegistered("lala")).subscribe()
+    }
+
     @GetMapping
     fun get(): Mono<Int>
     {
-        // You should already have at least one item in the database
-        //
-        // serverEventRepository.save(UserRegistered("lala")).subscribe()
+        // The bug only manifests itself with functions that construct the UserRegistered object.
+        // Therefore I use this contrived example as opposed to 'serverEventRepository.count()'.
 
         return serverEventRepository.findAll().collectList().map { it.size }
     }
