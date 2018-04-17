@@ -14,11 +14,10 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 sealed class ServerEvent
 
-@Document
-//@TypeAlias("UserRegistered")    // Note: after uncommenting this annotation, remember to re-populate the DB
+@TypeAlias("UserRegistered")    // Note: after uncommenting this annotation, remember to re-populate the DB
 data class UserRegistered
 (
-    @Indexed val something: String
+    val something: String
 
 ): ServerEvent()
 
