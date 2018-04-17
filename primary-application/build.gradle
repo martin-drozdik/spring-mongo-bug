@@ -15,3 +15,7 @@ sourceSets {
         }
     }
 }
+
+dependencies {
+    compile project(':domain-model')
+}
